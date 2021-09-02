@@ -8,7 +8,7 @@ const PORT = process.env.PORT
 const HOST = process.env.HOST
 app.listen(PORT)
 const UDPPort = new osc.UDPPort({
-  localAdrress : HOST,
+  localAdrress : 'oscweb.herokuapp.com',
   localPort : PORT
 })
 console.log(UDPPort)
