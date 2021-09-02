@@ -14,10 +14,11 @@ const UDPPort = new osc.UDPPort({
 console.log(UDPPort)
 var client = require("socket.io-client");
 var socket = client.connect("ws://oscweb.herokuapp.com")
-
+socket.open()
 UDPPort.open()
 UDPPort.on("message", function (oscMsg, timeTag, info) {
-  socket.emit("message", "foo")
+  console.log(oscMsg)
+  socket.emit("message", oscMsg)
 })
   UDPPort.on("ready", function () {
     console.log(" OSC ready!", HOST, PORT)
